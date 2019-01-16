@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accommodation{% endblock %}
+
+{% block body %}
+    <h1>Accommodation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ accommodation.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ accommodation.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ accommodation.description }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ accommodation.address }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ accommodation.City }}</td>
+            </tr>
+            <tr>
+                <th>Surface</th>
+                <td>{{ accommodation.surface }}</td>
+            </tr>
+            <tr>
+                <th>PriceByNight</th>
+                <td>{{ accommodation.priceByNight }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ accommodation.active ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Capacity</th>
+                <td>{{ accommodation.capacity }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('accommodation_index') }}">back to list</a>
+
+    <a href="{{ path('accommodation_edit', {'id': accommodation.id}) }}">edit</a>
+
+    {{ include('accommodation/_delete_form.html.twig') }}
+{% endblock %}
