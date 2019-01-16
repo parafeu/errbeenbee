@@ -7,15 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RoomRepository")
  */
-class Room
+class Room extends Accommodation
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
     /**
      * @ORM\Column(type="boolean")
      */
@@ -30,11 +23,6 @@ class Room
      * @ORM\Column(type="boolean")
      */
     private $sharedBathroom;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getSharedRoom(): ?bool
     {

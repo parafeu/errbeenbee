@@ -9,15 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OwnerRepository")
  */
-class Owner
+class Owner extends User
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Accommodation", mappedBy="owner")
      */
@@ -26,11 +19,6 @@ class Owner
     public function __construct()
     {
         $this->accomodations = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**

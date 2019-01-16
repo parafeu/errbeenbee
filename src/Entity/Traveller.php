@@ -9,14 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TravellerRepository")
  */
-class Traveller
+class Traveller extends User
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="traveller")
@@ -26,11 +20,6 @@ class Traveller
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**
