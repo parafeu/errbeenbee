@@ -1,11 +1,3 @@
-index:
-    path: /
-    controller: App\Controller\PublicController::index
-
-traveller:
-    path: /travellerInterface
-    controller: App\Controller\TravellerInterfaceController::index
-
-owner:
-    path: /ownerInterface
-    controller: App\Controller\OwnerInterfaceController::index
+#index:
+#    path: /
+#    controller: App\Controller\PublicController::index
