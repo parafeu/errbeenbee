@@ -74,6 +74,11 @@ class Accommodation
      */
     private $owner;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $capacity;
+
     public function __construct()
     {
         $this->equipments = new ArrayCollection();
@@ -266,6 +271,18 @@ class Accommodation
     public function setOwner(?Owner $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getCapacity(): ?int
+    {
+        return $this->capacity;
+    }
+
+    public function setCapacity(int $capacity): self
+    {
+        $this->capacity = $capacity;
 
         return $this;
     }
