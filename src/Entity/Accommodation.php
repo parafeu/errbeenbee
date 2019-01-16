@@ -8,8 +8,11 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="AccommodationRepository")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="accType", type="string")
+ * @ORM\DiscriminatorMap({"room" = "Room", "house" = "House"})
  */
-class Accommodation
+abstract class Accommodation
 {
     /**
      * @ORM\Id()

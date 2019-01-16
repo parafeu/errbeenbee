@@ -6,8 +6,11 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="usrType", type="string")
+ * @ORM\DiscriminatorMap({"traveller" = "Traveller", "owner" = "Owner"})
  */
-class User
+abstract class User
 {
     /**
      * @ORM\Id()
