@@ -8,7 +8,7 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-
+symfony.lock
 ###> symfony/phpunit-bridge ###
 .phpunit
 /phpunit.xml
