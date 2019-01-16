@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Traveller index{% endblock %}
+
+{% block body %}
+    <h1>Traveller index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Address</th>
+                <th>PhoneNumber</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for traveller in travellers %}
+            <tr>
+                <td>{{ traveller.id }}</td>
+                <td>{{ traveller.firstname }}</td>
+                <td>{{ traveller.lastname }}</td>
+                <td>{{ traveller.address }}</td>
+                <td>{{ traveller.phoneNumber }}</td>
+                <td>{{ traveller.email }}</td>
+                <td>{{ traveller.password }}</td>
+                <td>
+                    <a href="{{ path('traveller_show', {'id': traveller.id}) }}">show</a>
+                    <a href="{{ path('traveller_edit', {'id': traveller.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('traveller_new') }}">Create new</a>
+{% endblock %}
