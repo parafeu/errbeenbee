@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="AccommodationRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\AccommodationRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="accType", type="string")
  * @ORM\DiscriminatorMap({"room" = "Room", "house" = "House"})

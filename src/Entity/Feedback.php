@@ -26,6 +26,11 @@ class Feedback
      */
     private $stars;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $comment;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -57,6 +62,18 @@ class Feedback
     public function setStars(int $stars): self
     {
         $this->stars = $stars;
+
+        return $this;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    public function setComment(string $comment): self
+    {
+        $this->comment = $comment;
 
         return $this;
     }

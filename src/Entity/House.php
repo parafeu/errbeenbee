@@ -25,4 +25,9 @@ class House extends Accommodation
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

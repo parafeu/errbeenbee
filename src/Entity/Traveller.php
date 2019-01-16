@@ -52,4 +52,9 @@ class Traveller extends User
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return strtoupper($this->getLastName()) . ' ' . $this->getFirstName();
+    }
 }
