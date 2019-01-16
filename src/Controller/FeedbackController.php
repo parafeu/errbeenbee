@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Feedback;
-use App\Form\FeedbackType;
+use App\Form\Feedback1Type;
 use App\Repository\FeedbackRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class FeedbackController extends AbstractController
     public function new(Request $request): Response
     {
         $feedback = new Feedback();
-        $form = $this->createForm(FeedbackType::class, $feedback);
+        $form = $this->createForm(Feedback1Type::class, $feedback);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class FeedbackController extends AbstractController
      */
     public function edit(Request $request, Feedback $feedback): Response
     {
-        $form = $this->createForm(FeedbackType::class, $feedback);
+        $form = $this->createForm(Feedback1Type::class, $feedback);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
