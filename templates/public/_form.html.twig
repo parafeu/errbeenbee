@@ -1,0 +1,29 @@
+<style>
+    form    {
+        width: 100%;
+    }
+
+    form label.active{
+        color: #ffb101 !important;
+    }
+
+    form input:focus{
+        border-bottom-color: #ffb101 !important;
+        box-shadow: 0 1px 0 0 #ffb101 !important;
+    }
+</style>
+{{ form_start(form) }}
+
+{{ form_row( form.email, {
+    'label': 'Adresse Email'
+})}}
+
+{{ form_row( form.password, {
+    'label': 'Mot de passe'
+})
+}}
+<button class="btn waves-effect waves-light amber right" type="submit">
+    Se connecter
+    <i class="material-icons right">send</i>
+</button>
+{{ form_end(form) }}

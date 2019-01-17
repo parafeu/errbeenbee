@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        .container{
+            width: 100vw;
+            height: calc(100vh - 87px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container > .form-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 2em;
+        }
+
+        .container > .form-container > .logo{
+            background-image: url("{{ asset('imgs/logo-full.svg') }}");
+            width: 100%;
+            height: 200px;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 2em;
+            margin-bottom: 1em;
+        }
+
+        h2{
+            color: #ffb101;
+            font-size: 1.9em;
+            margin: 0px;
+            margin-bottom: 1em;
+        }
+    </style>
+    <div class="container">
+        <div class="z-depth-1 form-container">
+            <div class="logo"></div>
+            <h2>Connexion !</h2>
+            {% form_theme form 'form/materialize_form_theme.html.twig' %}
+            {{ include('public/_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
