@@ -42,7 +42,7 @@ class OwnerController extends AbstractController
             return $this->redirectToRoute('owner_index');
         }
 
-        return $this->render('owner/signup.html.twig', [
+        return $this->render('owner/new.html.twig', [
             'owner' => $owner,
             'form' => $form->createView(),
         ]);

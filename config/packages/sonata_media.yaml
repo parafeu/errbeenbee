@@ -13,7 +13,7 @@ sonata_media:
             formats:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
-
+                full: { width: 1920, quality: 70 }
     cdn:
         server:
             path: /upload/media

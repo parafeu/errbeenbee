@@ -18,12 +18,12 @@ class PublicController extends AbstractController
     {
 
         $mediaRepo = $this->getDoctrine()->getRepository(Media::class);
-        $media = $mediaRepo->find(1);
+        $media = $mediaRepo->find(3);
         return $this->render('public/index.html.twig', [
             'controller_name' => 'PublicController',
             'houses' => $houseRepository->findAll(),
             'rooms' => $roomRepository->findAll(),
-            'media' => $media
+            'defaultImage' => $media
         ]);
     }
 }

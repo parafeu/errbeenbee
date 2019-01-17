@@ -42,7 +42,7 @@ class BookingController extends AbstractController
             return $this->redirectToRoute('booking_index');
         }
 
-        return $this->render('booking/signup.html.twig', [
+        return $this->render('booking/new.html.twig', [
             'booking' => $booking,
             'form' => $form->createView(),
         ]);

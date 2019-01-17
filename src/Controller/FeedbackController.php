@@ -42,7 +42,7 @@ class FeedbackController extends AbstractController
             return $this->redirectToRoute('feedback_index');
         }
 
-        return $this->render('feedback/signup.html.twig', [
+        return $this->render('feedback/new.html.twig', [
             'feedback' => $feedback,
             'form' => $form->createView(),
         ]);

@@ -42,7 +42,7 @@ class RoomController extends AbstractController
             return $this->redirectToRoute('room_index');
         }
 
-        return $this->render('room/signup.html.twig', [
+        return $this->render('room/new.html.twig', [
             'room' => $room,
             'form' => $form->createView(),
         ]);

@@ -42,7 +42,7 @@ class EquipmentController extends AbstractController
             return $this->redirectToRoute('equipment_index');
         }
 
-        return $this->render('equipment/signup.html.twig', [
+        return $this->render('equipment/new.html.twig', [
             'equipment' => $equipment,
             'form' => $form->createView(),
         ]);

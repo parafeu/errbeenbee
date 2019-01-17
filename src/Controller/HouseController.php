@@ -42,7 +42,7 @@ class HouseController extends AbstractController
             return $this->redirectToRoute('house_index');
         }
 
-        return $this->render('house/signup.html.twig', [
+        return $this->render('house/new.html.twig', [
             'house' => $house,
             'form' => $form->createView(),
         ]);
