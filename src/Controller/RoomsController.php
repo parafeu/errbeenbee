@@ -7,6 +7,7 @@ use Buzz\Message\Response;
 use Doctrine\ORM\EntityNotFoundException;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\View\View;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class RoomsController extends AbstractFOSRestController
 {
@@ -29,7 +30,7 @@ class RoomsController extends AbstractFOSRestController
         $room = $roomRepo->find($id);
 
         if (!$room) {
-            throw new EntityNotFoundException('Room with id ' . $id . ' does not exist!');
+            return new JsonResponse(['error' => 'Room with id ' . $id . ' does not exist!'], Response::HTTP_NOT_FOUND);
         }
 
         $view = View::create($room);
