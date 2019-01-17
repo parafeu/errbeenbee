@@ -26,9 +26,9 @@ class OwnerController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="owner_new", methods={"GET","POST"})
+     * @Route("/signup", name="owner_signup", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function signup(Request $request): Response
     {
         $owner = new Owner();
         $form = $this->createForm(OwnerType::class, $owner);
@@ -42,7 +42,7 @@ class OwnerController extends AbstractController
             return $this->redirectToRoute('owner_index');
         }
 
-        return $this->render('owner/new.html.twig', [
+        return $this->render('owner/signup.html.twig', [
             'owner' => $owner,
             'form' => $form->createView(),
         ]);
