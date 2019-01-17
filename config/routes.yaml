@@ -1,0 +1,4 @@
+rooms:
+  type:     rest
+  resource: App\Controller\RoomsController
+  prefix:   /api
