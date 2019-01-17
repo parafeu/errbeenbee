@@ -1,21 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PublicController!{% endblock %}
-
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .brand-logo{
+        width: 2em;
+        height: 100%;
+        background-image: url("{{ asset('imgs/logo-white.svg') }}");
+        background-position: center;
+        background-size: 1em auto;
+        background-repeat: no-repeat;
+    }
+
+    nav li > a{
+        font-weight: bold;
+    }
 </style>
 
+<<<<<<< HEAD
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
     {% thumbnail media, 'small' %}
+=======
+<div class="index">
+    <nav>
+        <div class="nav-wrapper amber lighten-1">
+            <a href="/" class="brand-logo">
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/signup_owner">Devenir hôte</a></li>
+                <li><a href="/signup_traveller">Inscription</a></li>
+                <li><a href="/login">Connexion</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container row">
+        <div class="col s10">
+            <ul class="tabs ">
+>>>>>>> f8b28a3b5e126ce1e6d57ca6467d5dc4391ec9dc
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/XAMPP/xamppfiles/htdocs/errbeenbee/src/Controller/PublicController.php'|file_link(0) }}">src/Controller/PublicController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/XAMPP/xamppfiles/htdocs/errbeenbee/templates/public/index.html.twig'|file_link(0) }}">templates/public/index.html.twig</a></code></li>
-    </ul>
+            </ul>
+        </div>
+    </div>
 </div>
 {% endblock %}
