@@ -42,7 +42,7 @@ class AvailabilityController extends AbstractController
             return $this->redirectToRoute('availability_index');
         }
 
-        return $this->render('availability/new.html.twig', [
+        return $this->render('availability/signup.html.twig', [
             'availability' => $availability,
             'form' => $form->createView(),
         ]);

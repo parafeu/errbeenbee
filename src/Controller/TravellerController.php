@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/traveller")
@@ -26,9 +27,9 @@ class TravellerController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="traveller_new", methods={"GET","POST"})
+     * @Route("/signup", name="traveller_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
         $traveller = new Traveller();
         $form = $this->createForm(TravellerType::class, $traveller);
@@ -42,7 +43,7 @@ class TravellerController extends AbstractController
             return $this->redirectToRoute('traveller_index');
         }
 
-        return $this->render('traveller/new.html.twig', [
+        return $this->render('traveller/signup.html.twig', [
             'traveller' => $traveller,
             'form' => $form->createView(),
         ]);

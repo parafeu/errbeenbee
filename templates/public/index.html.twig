@@ -14,8 +14,46 @@
     nav li > a{
         font-weight: bold;
     }
-</style>
 
+    .container{
+        box-sizing: border-box;
+        margin-top: 2em;
+    }
+
+    .container ul#home-tab a.active{
+        font-weight: bold;
+    }
+
+    ul#home-tab a:focus, ul#home-tab a:focus.active{
+        background-color: rgba(255, 202, 40, 0.2);
+    }
+
+    .home-list{
+        margin-top: 2em;
+    }
+
+    #house .card-content .card-title-custom{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #house .card-content .card-title-custom > span:last-child{
+        color: #666;
+        font-size: 0.8em;
+    }
+
+    #house .card-content{
+        min-height: 100px;
+    }
+</style>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var tabs = M.Tabs.init(document.querySelector('#home-tab'));
+        var indicator = document.querySelector("#home-tab .indicator");
+        indicator.classList.add('amber');
+        indicator.classList.add('lighten-1');
+    });
+</script>
 <div class="index">
     <nav>
         <div class="nav-wrapper amber lighten-1">
@@ -23,16 +61,90 @@
             </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/signup_owner">Devenir hôte</a></li>
-                <li><a href="/signup_traveller">Inscription</a></li>
+                <li><a href="/traveller/signup">Inscription</a></li>
                 <li><a href="/login">Connexion</a></li>
             </ul>
         </div>
     </nav>
     <div class="container row">
         <div class="col s10">
-            <ul class="tabs ">
-
+            <ul id="home-tab" class="tabs z-depth-1">
+                <li class="tab col s3">
+                    <a class="active" href="#room">
+                        <span class="amber-text lighten-1">Chambre seule</span>
+                    </a>
+                </li>
+                <li class="tab col s3">
+                    <a href="#house">
+                        <span class="amber-text lighten-1">Logement entier</span>
+                    </a>
+                </li>
             </ul>
+        </div>
+        <div id="room" class="col s10 home-list">
+            {% for room in rooms %}
+                <div class="card medium">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ asset('imgs/default.jpg') }}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            <div class="left card-title-custom">
+                                <span>{{ room.name }}</span>
+                                <span>{{ room.city }}</span>
+                            </div>
+                            <span class="right">{{ room.priceByNight }} €/Nuit</span>
+                        </span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ room.name }}<span class="right">{{ room.priceByNight }} € / Nuit</span></span>
+                        <p>{{ room.description }}</p>
+                        <p>{{ room.city }}</p>
+                        <p>{{ room.surface }} m²</p>
+                        <p>Capacité de {{ room.capacity }} personnes</p>
+                        {% if room.sharedRoom %}
+                            <p>Chambre dortoire</p>
+                        {% else %}
+                            <p>Chambre personnelle</p>
+                        {% endif %}
+                        {% if room.sharedKitchen %}
+                            <p>Cuisine partagée</p>
+                        {% else %}
+                            <p>Cuisine personnelle</p>
+                        {% endif %}
+                        {% if room.sharedBathroom %}
+                            <p>Salle de bain partagée</p>
+                        {% else %}
+                            <p>Salle de bain personnelle</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="house" class="col s10 home-list">
+            {% for house in houses %}
+                <div class="card medium">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{{ asset('imgs/default.jpg') }}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            <div class="left card-title-custom">
+                                <span>{{ house.type }} : {{ house.name }}</span>
+                                <span>{{ house.city }}</span>
+                            </div>
+                            <span class="right">{{ house.priceByNight }} €/Nuit</span>
+                        </span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ house.type }} : {{ house.name }}<span class="right">{{ house.priceByNight }} € / Nuit</span></span>
+                        <p>{{ house.description }}</p>
+                        <p>{{ house.city }}</p>
+                        <p>{{ house.surface }} m²</p>
+                        <p>Capacité de {{ house.capacity }} personnes</p>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </div>
