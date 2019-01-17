@@ -11,10 +11,71 @@
                 padding: 0px;
                 margin: 0px;
             }
+            .brand-logo{
+                width: 2em;
+                height: 100%;
+                background-image: url("{{ asset('imgs/logo-white.svg') }}");
+                background-position: center;
+                background-size: 1em auto;
+                background-repeat: no-repeat;
+            }
+
+            nav li > a{
+                font-weight: bold;
+            }
+
+            @font-face {
+                font-family: 'Material Icons';
+                font-style: normal;
+                font-weight: 400;
+                src: url({{ asset('css/material-icons/MaterialIcons-Regular.eot') }}); /* For IE6-8 */
+                src: local('Material Icons'),
+                local('MaterialIcons-Regular'),
+                url({{ asset('css/material-icons/MaterialIcons-Regular.woff2') }}) format('woff2'),
+                url({{ asset('css/material-icons/MaterialIcons-Regular.woff') }}) format('woff'),
+                url({{ asset('css/material-icons/MaterialIcons-Regular.ttf') }}) format('truetype');
+            }
+
+            .material-icons {
+                font-family: 'Material Icons';
+                font-weight: normal;
+                font-style: normal;
+                font-size: 24px;  /* Preferred icon size */
+                display: inline-block;
+                line-height: 1;
+                text-transform: none;
+                letter-spacing: normal;
+                word-wrap: normal;
+                white-space: nowrap;
+                direction: ltr;
+
+                /* Support for all WebKit browsers. */
+                -webkit-font-smoothing: antialiased;
+                /* Support for Safari and Chrome. */
+                text-rendering: optimizeLegibility;
+
+                /* Support for Firefox. */
+                -moz-osx-font-smoothing: grayscale;
+
+                /* Support for IE. */
+                font-feature-settings: 'liga';
+            }
+
         </style>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <nav>
+            <div class="nav-wrapper amber">
+                <a href="/" class="brand-logo">
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/signup_owner">Devenir hôte</a></li>
+                    <li><a href="/traveller/signup">Inscription</a></li>
+                    <li><a href="/login">Connexion</a></li>
+                </ul>
+            </div>
+        </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

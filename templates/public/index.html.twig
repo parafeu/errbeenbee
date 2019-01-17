@@ -20,6 +20,10 @@
         margin-top: 2em;
     }
 
+    .container ul#home-tab a{
+        color: #ffb101;
+    }
+
     .container ul#home-tab a.active{
         font-weight: bold;
     }
@@ -51,33 +55,17 @@
         var tabs = M.Tabs.init(document.querySelector('#home-tab'));
         var indicator = document.querySelector("#home-tab .indicator");
         indicator.classList.add('amber');
-        indicator.classList.add('lighten-1');
     });
 </script>
 <div class="index">
-    <nav>
-        <div class="nav-wrapper amber lighten-1">
-            <a href="/" class="brand-logo">
-            </a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/signup_owner">Devenir hôte</a></li>
-                <li><a href="/traveller/signup">Inscription</a></li>
-                <li><a href="/login">Connexion</a></li>
-            </ul>
-        </div>
-    </nav>
     <div class="container row">
         <div class="col s10">
             <ul id="home-tab" class="tabs z-depth-1">
                 <li class="tab col s3">
-                    <a class="active" href="#room">
-                        <span class="amber-text lighten-1">Chambre seule</span>
-                    </a>
+                    <a class="active" href="#room">Chambre seule</a>
                 </li>
                 <li class="tab col s3">
-                    <a href="#house">
-                        <span class="amber-text lighten-1">Logement entier</span>
-                    </a>
+                    <a href="#house">Logement entier</a>
                 </li>
             </ul>
         </div>

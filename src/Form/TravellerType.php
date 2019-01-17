@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Traveller;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,8 +18,8 @@ class TravellerType extends AbstractType
             ->add('lastname')
             ->add('address')
             ->add('phoneNumber')
-            ->add('email')
-            ->add('password')
+            ->add('email', EmailType::class)
+            ->add('password', PasswordType::class)
         ;
     }
 
