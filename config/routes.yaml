@@ -1,0 +1,3 @@
+rooms:
+  type:     rest
+  resource: App\Controller\RoomsController
