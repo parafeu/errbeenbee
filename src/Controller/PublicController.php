@@ -30,9 +30,7 @@ class PublicController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/login", name="public_login", methods={"GET","POST"})
-     */
+
     public function login(Request $request): Response
     {
         $owner = new Owner();
