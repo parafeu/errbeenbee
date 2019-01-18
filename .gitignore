@@ -20,3 +20,5 @@ symfony.lock
 *.dia~
 *.dia.autosave
 /.idea
+
+src/Migrations/
