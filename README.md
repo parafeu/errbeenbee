@@ -18,3 +18,9 @@ Accomodation est étendue par Room et House, représentant une chambre ou un log
 - Création du formulaire d'inscription pour les voyageurs et les propriétaires
 - Implémentation du Bundle Sonata Media, permettant la mise en ligne et le stockage d'images
 - Création de l'API Rest
+
+## Travail à effectuer
+
+- Gestion de l'authentification utilisateur
+- Liaison entre les medias et les entités
+- Réaliser l'API REST (uniquement disponible pour GET Rooms actuellement)
