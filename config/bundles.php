@@ -21,4 +21,5 @@ return [
     Sonata\MediaBundle\SonataMediaBundle::class => ['all' => true],
     App\Application\Sonata\MediaBundle\ApplicationSonataMediaBundle::class => ['all' => true],
     FOS\RestBundle\FOSRestBundle::class => ['all' => true],
+    Neo4j\Neo4jBundle\Neo4jBundle::class => ['all' => true],
 ];
