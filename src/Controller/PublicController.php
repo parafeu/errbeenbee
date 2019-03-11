@@ -23,10 +23,15 @@ class PublicController extends AbstractController
     public function index(HouseRepository $houseRepository, RoomRepository $roomRepository, EntityManagerInterface $em)
     {
 
-        $vis = new NodeVisitor(1, "Alex", 20);
+        $sessionId = $this->get("session")->get("visitorId");
 
-        $em->persist($vis);
-        $em->flush();
+        $vis = $em->getRepository(NodeVisitor::class)->findOneBy(['sessionId' => $sessionId]);
+
+        if(!$vis){
+            $vis = new NodeVisitor($sessionId);
+            $em->persist($vis);
+            $em->flush();
+        }
 
         $mediaRepo = $this->getDoctrine()->getRepository(Media::class);
         $media = $mediaRepo->find(3);
