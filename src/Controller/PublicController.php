@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Application\Sonata\MediaBundle\Entity\Media;
+use App\Entity\Node\NodeVisitor;
 use App\Entity\Owner;
 use App\Form\LoginType;
+use GraphAware\Neo4j\OGM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,8 +20,14 @@ class PublicController extends AbstractController
     /**
      * @Route("/", name="public")
      */
-    public function index(HouseRepository $houseRepository, RoomRepository $roomRepository)
+    public function index(HouseRepository $houseRepository, RoomRepository $roomRepository, EntityManagerInterface $em)
     {
+
+        $vis = new NodeVisitor(1, "Alex", 20);
+
+        $em->persist($vis);
+        $em->flush();
+
         $mediaRepo = $this->getDoctrine()->getRepository(Media::class);
         $media = $mediaRepo->find(3);
         return $this->render('public/index.html.twig', [
