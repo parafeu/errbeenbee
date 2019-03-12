@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Equipment;
+use App\Entity\Node\NodeEquipement;
 use App\Form\EquipmentType;
 use App\Repository\EquipmentRepository;
+use GraphAware\Neo4j\OGM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,7 +30,7 @@ class EquipmentController extends AbstractController
     /**
      * @Route("/new", name="equipment_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, EntityManagerInterface $em): Response
     {
         $equipment = new Equipment();
         $form = $this->createForm(EquipmentType::class, $equipment);
@@ -38,6 +40,10 @@ class EquipmentController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($equipment);
             $entityManager->flush();
+
+            $nodeEquipement = new NodeEquipement($equipment->getId(), $equipment->getName());
+            $em->persist($nodeEquipement);
+            $em->flush();
 
             return $this->redirectToRoute('equipment_index');
         }

@@ -2,6 +2,14 @@
 
 {% block title %}New House{% endblock %}
 
+{% block stylesheets %}
+    <style>
+        select{
+            display: inherit !important;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
     {{ include('house/_form.html.twig') }}
 

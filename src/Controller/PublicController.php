@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Application\Sonata\MediaBundle\Entity\Media;
+use App\Entity\Node\NodeHouse;
 use App\Entity\Node\NodeVisitor;
 use App\Entity\Owner;
 use App\Form\LoginType;
@@ -35,9 +36,19 @@ class PublicController extends AbstractController
 
         $mediaRepo = $this->getDoctrine()->getRepository(Media::class);
         $media = $mediaRepo->find(3);
+
+        $houses = $houseRepository->findAll();
+        $housesNodes = $em->getRepository(NodeHouse::class)->findAll();
+        for($i = 0; $i < count($houses); $i++){
+            foreach ($housesNodes as $node){
+                if($houses[$i]->getId() == $node->getHouseId()){
+                    $houses[$i]->setNbVisites($node->getNbVisites());
+                }
+            }
+        }
         return $this->render('public/index.html.twig', [
             'controller_name' => 'PublicController',
-            'houses' => $houseRepository->findAll(),
+            'houses' => $houses,
             'rooms' => $roomRepository->findAll(),
             'defaultImage' => $media
         ]);

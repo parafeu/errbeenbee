@@ -18,6 +18,7 @@
                 <th>Active</th>
                 <th>Capacity</th>
                 <th>Type</th>
+                <th>Nombre de visites</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -34,6 +35,7 @@
                 <td>{{ house.active ? 'Yes' : 'No' }}</td>
                 <td>{{ house.capacity }}</td>
                 <td>{{ house.type }}</td>
+                <td>{{ house.nbVisites }}</td>
                 <td>
                     <a href="{{ path('house_show', {'id': house.id}) }}">show</a>
                     <a href="{{ path('house_edit', {'id': house.id}) }}">edit</a>

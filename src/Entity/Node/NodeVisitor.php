@@ -9,7 +9,7 @@
 namespace App\Entity\Node;
 
 use GraphAware\Neo4j\OGM\Annotations as OGM;
-
+use GraphAware\Neo4j\OGM\Common\Collection;
 
 /**
  * @OGM\Node(label="Visitor")
@@ -23,6 +23,13 @@ class NodeVisitor
     protected $sessionId;
 
     /**
+     * @var NodeConsult[]
+     *
+     * @OGM\Relationship(relationshipEntity="NodeConsult", type="CONSULTE", direction="OUTGOING", collection=true, mappedBy="visitor")
+     */
+    protected $consults;
+
+    /**
      * NodeVisitor constructor.
      * @param $id
      * @param $sessionId
@@ -30,6 +37,7 @@ class NodeVisitor
     public function __construct($sessionId)
     {
         $this->sessionId = $sessionId;
+        $this->consults = new Collection();
     }
 
     /**
@@ -56,6 +64,20 @@ class NodeVisitor
         $this->sessionId = $sessionId;
     }
 
+    /**
+     * @return NodeConsult[]
+     */
+    public function getConsults()
+    {
+        return $this->consults;
+    }
 
+    /**
+     * @param NodeConsult[] $consults
+     */
+    public function setConsults($consults): void
+    {
+        $this->consults = $consults;
+    }
 
 }

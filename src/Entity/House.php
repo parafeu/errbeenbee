@@ -14,6 +14,9 @@ class House extends Accommodation
      */
     private $type;
 
+    /** @var int */
+    private $nbVisites;
+
     public function getType(): ?string
     {
         return $this->type;
@@ -24,6 +27,28 @@ class House extends Accommodation
         $this->type = $type;
 
         return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbVisites(): int
+    {
+        return $this->nbVisites;
+    }
+
+    /**
+     * @param int $nbVisites
+     */
+    public function setNbVisites(int $nbVisites): void
+    {
+        $this->nbVisites = $nbVisites;
+    }
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->nbVisites = 0;
     }
 
     public function __toString()
